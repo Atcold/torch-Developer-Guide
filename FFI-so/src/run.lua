@@ -19,7 +19,7 @@ length = 5; display = true
 -- Require ffi
 ffi = require("ffi")
 -- Load myLib
-local myLib = ffi.load(paths.cwd() .. '/libasdf.so')
+myLib = ffi.load(paths.cwd() .. '/libasdf.so')
 -- Function prototypes definition
 ffi.cdef [[
    void dummy(int* ptr_form_lua, int size)

@@ -1,3 +1,4 @@
 # Files
 *.sw*
 .DS_Store
+*.so

@@ -1,5 +1,7 @@
 # Torch Developer Guide
 
+[![Join the chat at https://gitter.im/Atcold/Torch-Developer-Guide](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/Atcold/Torch-Developer-Guide?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 This repository tries to provide some advanced tricks with [Torch7](http://torch.ch/) explained easily
 
 ## *FFI* series

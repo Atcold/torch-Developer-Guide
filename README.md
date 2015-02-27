@@ -1,4 +1,4 @@
-# Under the Hood of Torch
+# Torch Developer Guide
 
 This repository tries to provide some advanced tricks with [Torch7](http://torch.ch/) explained easily
 

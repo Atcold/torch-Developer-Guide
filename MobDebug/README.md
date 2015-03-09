@@ -19,7 +19,7 @@ luarocks install mobdebug
 ## Let's debug!
 
 In order to understand the different functionalities that *MobDebug* offers, we're going to debug, step by step, a simple *Lua* script.
-(The script itself can be found at [`src/test.lua`](scr/test.lua), and it has been borrowed from [*remdebug*](https://github.com/LuaDist/remdebug) [test script](https://github.com/LuaDist/remdebug/blob/master/tests/test.lua).)
+(The script itself can be found at [`src/test.lua`](src/test.lua), and it has been borrowed from [*remdebug*](https://github.com/LuaDist/remdebug) [test script](https://github.com/LuaDist/remdebug/blob/master/tests/test.lua).)
 
 ```lua
  1   require('mobdebug').start()

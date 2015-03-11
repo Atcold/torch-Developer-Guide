@@ -16,10 +16,16 @@ All you need to do is type
 luarocks install mobdebug
 ```
 
+## Run the debugger
+
+```lua
+th -e "require('mobdebug').listen()"
+```
+
 ## Let's debug!
 
 In order to understand the different functionalities that *MobDebug* offers, we're going to debug, step by step, a simple *Lua* script.
-(The script itself can be found at [`src/test.lua`](src/test.lua), and it has been borrowed from [*remdebug*](https://github.com/LuaDist/remdebug) [test script](https://github.com/LuaDist/remdebug/blob/master/tests/test.lua).)
+(The script itself can be found at [`src/test.lua`](src/test.lua), and it has been borrowed from [*remdebug*](https://github.com/LuaDist/remdebug)'s [testing script](https://github.com/LuaDist/remdebug/blob/master/tests/test.lua).)
 
 ```lua
  1   require('mobdebug').start()
@@ -44,3 +50,87 @@ In order to understand the different functionalities that *MobDebug* offers, we'
 20
 21   print("End")
 ```
+
+> Generally speaking, all we need to do is add
+>
+> ```lua
+> require('mobdebug').start()
+> ```
+>
+> at the beginning of the script we want to debug.
+
+So, let's `cd` into [`src`](src) and `th` `test.lua`.
+
+### `run`, `step`, `over` and `out`
+
+`run`, `step`, `over` and `out` are the four commands that allow us to proceed with the execution of the code, tackling line after line. By typing `help` withing the debugger session, we can see what their functions are.
+
+```lua
+run    -- runs until next breakpoint
+step   -- runs until next line, stepping into function calls
+over   -- runs until next line, stepping over function calls
+out    -- runs until line after returning from current function
+```
+
+---
+
+We can start with `over`, `step`, `step`.
+
+```
+> over
+Paused at file test.lua line 13
+> step
+Paused at file test.lua line 10
+> step
+Paused at file test.lua line 15
+```
+
+The first `over` gets the program to print `Start`.
+The other two `step`s don't have any corresponding output.
+
+Our debugger is waiting for us at the beginning of the `for` loop.
+Let's skip to line `17` by setting a *breakpoint* and using `run`.
+
+### Playing with *breakpoints*
+
+To execute the code up to *a specific line* of *a specific file* we can use the breackpoint/run combination.
+The instruction to set a breakpoint works as follow
+
+```lua
+setb <file> <line>   -- sets a breakpoint
+```
+
+To list all available breakpoints, we can write
+
+```lua
+listb   -- lists breakpoints
+```
+To remove a breakpoint or all breakpoints
+
+```lua
+delb <file> <line>   -- removes a breakpoint
+delallb              -- removes all breakpoints
+```
+
+---
+
+Now we are at line `15` and, say, we'd like to skip to line `17`.
+
+```lua
+> 15   for i = 1, 10 do
+  16      print("Loop")
+↳ 17      bar()
+```
+
+We are going to type `setb test.lua 17`, or, since we don't link to other scripts, we can type `steb - 17`.
+
+```
+> setb - 17
+> run
+Paused at file test.lua line 17
+> listb
+-: 17
+```
+
+`run` makes the script print `Loop` on screen.
+

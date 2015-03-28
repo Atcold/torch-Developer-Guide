@@ -223,3 +223,49 @@ Now we can kill our breakpoint with
 ```
 
 and now run our code until `tab.foo` reaches the value `32` by setting a *watch expression*.
+
+## *Watch expressions*
+
+A *watch-expression* allows you to run your code until a specific condition becomes valid.
+The syntax is the following:
+
+```lua
+setw <exp>   -- adds a new watch expression
+```
+
+To list all available watch-expressions, we can write
+
+```lua
+listw   -- lists watch expressions
+```
+To remove a watch-expressions or all watch-expressions
+
+```lua
+delw <index>   -- removes the watch expression at index
+delallw        -- removes all watch expressions
+```
+
+---
+
+Currently, `tab.foo == 4`. Let `run` the script until it reaches `32`.
+
+```lua
+> setw tab.foo == 32
+Inserted watch exp no. 1
+> listw
+Watch exp. 1: tab.foo == 32
+> run
+Paused at file src/test.lua line 15 (watch expression 1: [tab.foo == 32])
+```
+
+where `run` gets the script to output `In bar 1`, `In bar 2` and `Loop` twice plus an additional `In bar 1` and `In bar 2`.
+
+Now that we got to this point, let's check what's in `tab` (and remove the watch-expression, so that we don't get stuck)!
+
+```lua
+> eval tab
+{bar = 5, foo = 32} --[[table: 0x06dcb8d8]]
+> delallw
+```
+
+Let's end the execution of the program with `run`.

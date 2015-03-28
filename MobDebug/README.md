@@ -93,7 +93,7 @@ Let's skip to line `17` by setting a *breakpoint* and using `run`.
 
 ### Playing with *breakpoints*
 
-To execute the code up to *a specific line* of *a specific file* we can use the breackpoint/run combination.
+To execute the code up to *a specific line* of *a specific file* we can use the breackpoint / run combination.
 The instruction to set a breakpoint works as follow
 
 ```lua
@@ -134,7 +134,7 @@ Paused at file test.lua line 17
 
 `run` makes the script print `Loop` on screen.
 
-### Evaluate and print variables
+### Evaluate and print variables & execute snippets
 
 Let's check now the value of some variables (**even local ones**!).
 We can do this with
@@ -203,6 +203,17 @@ As we can see, line `18`
 
 doubles `tab.foo`, which goes from `1` to `2` to `4`.
 
+As mentioned before, the real power of `exec` is the ability of changing the code that is running live.
+For example, let's set `tab.bar` to `5`.
+
+```lua
+> exec tab.bar = 5
+> eval tab
+{bar = 5, foo = 4} --[[table: 0x06dcb8d8]]
+```
+
+and **boom**, the variable has got a new value. So, this is fabulous is you have the need to update some hard-coded parameter variables.
+
 Now we can kill our breakpoint with
 
 ```lua
@@ -211,4 +222,4 @@ Now we can kill our breakpoint with
 >
 ```
 
-Let's now run our code untill `tab.foo` reaches the value `32` by setting a *watch expression*.
+and now run our code until `tab.foo` reaches the value `32` by setting a *watch expression*.

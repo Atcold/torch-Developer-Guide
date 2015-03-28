@@ -269,3 +269,11 @@ Now that we got to this point, let's check what's in `tab` (and remove the watch
 ```
 
 Let's end the execution of the program with `run`.
+
+## Exit
+
+If we are done debugging, and we wish not to continue the execution of our scirpt, we can simply issue the `exit` command, which will terminate the debugging session and the script execution with it.
+
+```lua
+exit   -- exits debugger
+```

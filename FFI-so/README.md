@@ -74,7 +74,7 @@ In the "Main program", we have simply to create a random `IntTensor`, expose its
 
 ## Motivations
 
-Why is this stuff cool? Run the source code [`src/run.lua`](scr/run.lua) and you'll understand it. Bare in mind that **you have to actually read the instructions** at the begining of the code and experiment with different combination of options by commenting some lines of code.
+Why is this stuff cool? Run the source code [`src/run.lua`](src/run.lua) and you'll understand it. Bare in mind that **you have to actually read the instructions** at the begining of the code and experiment with different combination of options by commenting some lines of code.
 
 For the more lazy ones, I'll write here some conclusions myself.  
 By setting `length` to `1e7`, i.e. 10 millions, and disabling the `print()` of the array on screen, I get the following output:

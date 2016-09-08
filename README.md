@@ -10,6 +10,7 @@ This repository tries to provide some advanced tricks with [Torch7](http://torch
 The *FFI series* will provide several working examples of playing with *C* from within *Torch*, taking for granted no prior knowledge of building `.so` libraries, using `Makefile` or tackling *Tensors* pointers.
 
  1. [*FFI* and `.so` library](FFI-so/README.md)
+ 2. [`Tensor`s through *FFI*](FFI-Tensor/README.md)
 
 ## Debugging
 

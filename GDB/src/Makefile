@@ -1,7 +1,7 @@
 ################################################################################
-# Make file for building the shared library
+# Make file for building the shared library + GDB debugging option
 ################################################################################
-# Alfredo Canziani, Nov 14
+# Alfredo Canziani, Sep 16
 ################################################################################
 
 LIBOPTS = -shared

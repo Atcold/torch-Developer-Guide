@@ -18,3 +18,4 @@ If you found yourself using several `print()` and `io.read()` around the code wi
 There are few alternatives, but we'll start with the easiest one: a command-line debugger.
 
  1. [MobDebug](MobDebug/README.md) (command-line)
+ 2. [GDB](GDB/README.md) (shared objects)

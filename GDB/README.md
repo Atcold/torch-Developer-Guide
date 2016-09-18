@@ -36,7 +36,7 @@ How to move forward?
 
 ## GDB
 
-[*GDB*](https://www.gnu.org/software/gdb/), the GNU Project debugger, allows you to see [...] what another program was doing at the moment it crashed.
+[GDB](https://www.gnu.org/software/gdb/), *the GNU Project debugger, allows you to see [...] what another program was doing at the moment it crashed.*
 Pretty sweet, uh?
 Since we're using `gdb`, I've included the flag `-ggdb` in the [`Makefile`](src/Makefile), which provides us with even more sweet treats, but it is not strictly required (so, this works even with `.so` compiled by someone else).
 
@@ -119,7 +119,7 @@ Program received signal SIGSEGV, Segmentation fault.
 
 So, here we have already a great deal of information.
 We know that the killing function is `D()`.
-Even if we would have not use the `-ggdb` flag we would have known this, given that the output would have looked like thi
+Even if we would have not use the `-ggdb` flag we would have known this, given that the output would have looked like this
 
 ```gdb
 Running a function from a shared object
@@ -131,7 +131,7 @@ Program received signal SIGSEGV, Segmentation fault.
 But here, since we could, we run `-ggdb` as an option of `gcc`, which gives us the name of the incriminated source code (`segfault.c`) and its breaking line (`8`) and instruction (`*(int*)0 = 0;`).
 Otherwise, all we would have got would have been the name of the `.so` (`[...]/libsegfault.so`) and the breaking function name (`D()`).
 
-Finally, we can go back to how we eneded up calling `D()` by printing the whole *stack traceback` by typing `backtrace`.
+Finally, we can go back to how we eneded up calling `D()` by printing the whole *stack traceback* by typing `backtrace`.
 
 ```gdb
 (gdb) backtrace
@@ -152,8 +152,7 @@ Finally, we can go back to how we eneded up calling `D()` by printing the whole 
 #14 0x0000000000404e54 in main ()
 ```
 
-And the `in D () at segfault.c:8` would have become something like `in D () from /home/atcold/Work/GitHub/torch-Developer-Guide/GDB/src/libsegfault.so` if the `-ggdb` would have been missing.
+And the `in D () at segfault.c:8` and the following 3 lines would have become something like `in D () from /home/atcold/Work/GitHub/torch-Developer-Guide/GDB/src/libsegfault.so` if the `-ggdb` would have been missing.
 
-And this is the end.
-I wrote this because I was getting a *Segentation fault* and I had no clue what was going on.
-Now I feel I'm armed with a very powerful tool, that allows me to dig deeper and deeper into my compiled objects which I'm calling from *Torch*.
+And this is the end.I wrote this because I was getting a `Segentation fault` and I had no clue what was going on.
+Now I feel I'm armed with a very powerful tool, that allows me to dig deeper and deeper into my compiled objects which I'm calling from *Torch* via the *FFI*.

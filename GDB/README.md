@@ -156,3 +156,5 @@ And the `in D () at segfault.c:8` and the following 3 lines would have become so
 
 And this is the end.I wrote this because I was getting a `Segentation fault` and I had no clue what was going on.
 Now I feel I'm armed with a very powerful tool, that allows me to dig deeper and deeper into my compiled objects which I'm calling from *Torch* via the *FFI*.
+
+You can find a nice cheat sheet for *GDB* [here](http://darkdust.net/files/GDB%20Cheat%20Sheet.pdf).

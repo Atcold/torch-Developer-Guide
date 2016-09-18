@@ -5,11 +5,11 @@
 ################################################################################
 
 LIBOPTS = -shared
-CFLAGS = -fPIC -std=gnu99
+CFLAGS = -fPIC -std=gnu99 -g
 CC = gcc
 
 libsegfault.so : segfault.c
 	$(CC) $< $(LIBOPTS) $(CFLAGS) -o $@
 
 clean :
-	rm *.so
+	rm -rf *.so*

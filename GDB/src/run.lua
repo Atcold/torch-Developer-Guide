@@ -15,6 +15,7 @@ ffi.cdef [[
 ]]
 
 -- Main program ----------------------------------------------------------------
-print('Running a function from a shared object')
+local red = require('trepl.colorize').red
+print(red 'Running a function from a shared object')
 myLib.A()
-print('Never here')
+print(red 'Never here')

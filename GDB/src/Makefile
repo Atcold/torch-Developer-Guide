@@ -5,7 +5,7 @@
 ################################################################################
 
 LIBOPTS = -shared
-CFLAGS = -fPIC -std=gnu99 -g
+CFLAGS = -fPIC -std=gnu99 -ggdb
 CC = gcc
 
 libsegfault.so : segfault.c
